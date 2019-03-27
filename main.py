@@ -151,12 +151,18 @@ while True:
             # counter = START_VALUE_FOR_COUNTER  # FOR TESTING PURPOSES OF CODE WINDOW
             if counter > 7:
                 # Display text in middle of screen
-                text = 'Input code groen blauw rood zwart:'.rjust(3)
 
                 # TODO FOR 2 MINUTES, ELSE RESET COUNTER TO 0
                 playsound.playsound("input_code.wav")
-                # code_input_total_seconds = TIME_OPEN_FOR_INPUT_CODE - (
-                # frame_count_code_timer // FRAME_RATE)
+
+                # Fix for bug when the code is not inputted after a two minute wait
+                counter = 0
+                text = str(counter)
+                background_color = RED
+                screen.fill(background_color)
+                pygame.display.update()
+
+                # Initialise timer for inputting the code.
                 out_of_time = False
                 t = Timer(TIME_OPEN_FOR_INPUT_CODE, time_ran_out)
                 t.start()
