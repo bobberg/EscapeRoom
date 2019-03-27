@@ -1,6 +1,7 @@
 Welcome to the Escape Room
 
-Install python 3.6
+Install python 3.7.3 (tested) from
+https://www.python.org/downloads/windows/
 
 open cmd and do:
 
