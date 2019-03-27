@@ -44,8 +44,9 @@ GREENISH = (80, 255, 0)
 GREEN = (0, 255, 0)
 
 # Solution
-SECRET_CODE = "1234"
-URL = 'http://www.python.org/'
+SECRET_CODE = "5147"
+HANDCUFF_CODE = "0807"
+URL = 'https://www.locked-game.nl/test/form.html'
 
 # Settings for screen and initialisation.
 pygame.init()
@@ -58,7 +59,7 @@ background_color = RED
 screen.fill(background_color)
 clock = pygame.time.Clock()
 pygame.time.set_timer(pygame.USEREVENT, 1000)
-font = pygame.font.SysFont('Consolas', 30)
+font = pygame.font.SysFont('Consolas', 50)
 
 textinput = pygame_textinput.TextInput()
 
@@ -76,6 +77,7 @@ FRAME_RATE = 30
 MINUTES_LEFT = 59
 SECONDS_LEFT = 4
 START_TIME = 3600
+INTERVAL = 15
 
 frame_count_code_timer = 0
 START_VALUE_FOR_COUNTER = 0
@@ -133,12 +135,12 @@ while True:
             time.sleep(5)
 
     for event in pygame.event.get():
-        if total_seconds % 15 == 0 and sound_played == False:
+        if total_seconds % INTERVAL == 0 and sound_played == False:
             playsound.playsound("beep.mp3")
             sound_played = True
 
-        elif total_seconds % 15 != 0:
-            # Reset variables for every 15 seconds
+        elif total_seconds % INTERVAL != 0:
+            # Reset variables for every INTERVAL seconds
             sound_played = False
             enter_pressed_once = False
 
@@ -149,7 +151,7 @@ while True:
             # counter = START_VALUE_FOR_COUNTER  # FOR TESTING PURPOSES OF CODE WINDOW
             if counter > 7:
                 # Display text in middle of screen
-                text = 'Input code:'.rjust(3)
+                text = 'Input code groen blauw rood zwart:'.rjust(3)
 
                 # TODO FOR 2 MINUTES, ELSE RESET COUNTER TO 0
                 playsound.playsound("input_code.wav")
@@ -162,7 +164,7 @@ while True:
                     # frame_count_code_timer += 1
                     # clock.tick(FRAME_RATE)
                     screenSize(0, 0, fullscreen=True)
-                    instructionLabel = makeLabel("Please enter code:", 40, 10,
+                    instructionLabel = makeLabel("Please enter code (Green Blue Red Black):", 40, 10,
                                                  10, "blue", "Agency FB",
                                                  "yellow")
                     showLabel(instructionLabel)
@@ -171,7 +173,17 @@ while True:
 
                     entry = textBoxInput(wordBox)
                     if entry == SECRET_CODE:
+                        text = str(HANDCUFF_CODE)
+                        background_color = GREEN
+                        screen.fill(background_color)
+                        font = pygame.font.SysFont('Consolas', 160)
+                        # For big font centering added -160 and -60
+                        screen.blit(
+                            font.render(text.rjust(3), True, (0, 0, 0)),
+                            (screen.get_width() // 2 - 160, screen.get_height() // 2 - 60))
                         # Open URL in new window, raising the window if possible. Also quit the pygame after the browser has opened.
+                        pygame.display.update()
+                        time.sleep(15)
                         webbrowser.open_new(URL)
                         pygame.quit()
                         quit()
@@ -186,14 +198,14 @@ while True:
                     counter = START_VALUE_FOR_COUNTER
 
             # If pressed enter (can be another button) counter is increased by 1
-            elif event.key == pygame.K_RETURN and total_seconds % 15 == 0 and counter <= 7:
+            elif event.key == pygame.K_RETURN and total_seconds % INTERVAL == 0 and counter <= 7:
                 print("enter pressed")
                 counter += 1
                 enter_pressed_once = False
                 text = str(counter)
 
             elif event.key == pygame.K_RETURN and enter_pressed_once == True:
-                # If pressed multiple times per every 15 seconds: Reset counter
+                # If pressed multiple times per every INTERVAL seconds: Reset counter
                 counter = 0
                 text = str(counter)
                 background_color = RED
@@ -203,7 +215,7 @@ while True:
                     (screen.get_width() // 2, screen.get_height() // 2))
 
             else:
-                # If not pressed every 15 seconds: Reset counter
+                # If not pressed every INTERVAL seconds: Reset counter
                 counter = 0
                 text = str(counter)
                 background_color = RED
