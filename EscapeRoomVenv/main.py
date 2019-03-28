@@ -17,17 +17,36 @@
 #!/usr/bin/python3
 import time
 import playsound
-import pygame
 from pygame.locals import *
-from pygame_functions import *
+from EscapeRoomVenv.pygame_functions import *
 from sys import exit
 import pygame_textinput
 import webbrowser
 from threading import Timer
 from pynput.keyboard import Key, Controller
+# !/usr/bin/python3
+import time
+import webbrowser
+from sys import exit
+from threading import Timer
+
+import playsound
+import pygame_textinput
+from pygame.locals import *
+from pynput.keyboard import Key, Controller
+
+from EscapeRoomVenv.pygame_functions import *
 
 keyboard = Controller()
-keyboard.press(Key.enter)
+
+
+
+
+
+
+
+
+
 
 # THIS IS TO STOP ALT TAB OR OTHER KEYS TO BE PRESSED
 # https://stackoverflow.com/questions/39110800/disable-alttab-combination-on-tkinter-app
@@ -38,6 +57,7 @@ keyboard.press(Key.enter)
 TIME_TO_PAUSE = 4
 
 # Different color constants
+BLACK = (0, 0, 0)
 RED = (255, 0, 0)
 RED_ORANGE = (255, 80, 0)
 ORANGE = (255, 160, 0)
@@ -47,13 +67,91 @@ YELLOW_GREEN = (160, 255, 0)
 GREENISH = (80, 255, 0)
 GREEN = (0, 255, 0)
 
+
+
+# THIS IS FOR STARTING THE GAME INTRODUCTION
+background_color = RED
+INTRODUCTION_TEXT = "Here will come an introduction text"
+pygame.init()
+screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
+pygame.display.set_caption('PRESS ENTER TO START')
+screen.fill(background_color)
+font = pygame.font.SysFont('Consolas', 20)
+text1 = 'You are an emergency team, brought together to save Disrupted Ltd.'
+text2 = 'The business is in big trouble.'
+text3 = 'The CEO has fled because the pressure was too much.'
+text4 = 'Business processes, products and the workforce need a complete transformation to survive and beat competition.'
+text5 = 'There are so many questions. Too many paths. What to automate?'
+text6 = 'How to organise the workforce? Where does the business sit in the market?'
+text7 = 'It’s overwhelming but essential to solve these challenges, right now.'
+text8 = 'The business could not pay its employees salaries last month.'
+text9 = 'This month they will walk out it their salaries aren’t paid.'
+text10 = 'Today, it’s payday.'
+text11 = 'You have 1 hour to make sure you are ready for the future of work and they are paid.'
+text12 = 'If you fail... the company will go bankrupt and you’ll all lose your jobs!'
+text13 = 'Good Luck'.rjust(3)
+text14 = "PRESS ENTER TO CONTINUE"
+screen.blit(
+    font.render(text1.rjust(3), True, (0, 0, 0)),
+    (400, screen.get_height() // 2 - 120))
+screen.blit(
+    font.render(text2.rjust(3), True, (0, 0, 0)),
+    (400, screen.get_height() // 2 - 100))
+screen.blit(
+    font.render(text3.rjust(3), True, (0, 0, 0)),
+    (400, screen.get_height() // 2 - 80))
+screen.blit(
+    font.render(text4.rjust(3), True, (0, 0, 0)),
+    (400, screen.get_height() // 2 - 60))
+screen.blit(
+    font.render(text5.rjust(3), True, (0, 0, 0)),
+    (400, screen.get_height() // 2 - 40))
+screen.blit(
+    font.render(text6.rjust(3), True, (0, 0, 0)),
+    (400, screen.get_height() // 2 - 20))
+screen.blit(
+    font.render(text7.rjust(3), True, (0, 0, 0)),
+    (400, screen.get_height() // 2))
+screen.blit(
+    font.render(text8.rjust(3), True, (0, 0, 0)),
+    (400, screen.get_height() // 2 + 20))
+screen.blit(
+    font.render(text9.rjust(3), True, (0, 0, 0)),
+    (400, screen.get_height() // 2 + 40))
+screen.blit(
+    font.render(text10.rjust(3), True, (0, 0, 0)),
+    (400, screen.get_height() // 2 + 60))
+screen.blit(
+    font.render(text11.rjust(3), True, (0, 0, 0)),
+    (400, screen.get_height() // 2 + 80))
+screen.blit(
+    font.render(text12.rjust(3), True, (0, 0, 0)),
+    (400, screen.get_height() // 2 + 100))
+screen.blit(
+    font.render(text13.rjust(3), True, (0, 0, 0)),
+    (400, screen.get_height() // 2 + 120))
+screen.blit(
+    font.render(text14.rjust(3), True, (0, 0, 0)),
+    (400, screen.get_height() // 2 + 160))
+
+pygame.display.update()
+playsound.playsound("intro_emergency_team.mp3")
+
+starting = True
+while starting == True:
+    for event in pygame.event.get():
+        if event.type == KEYDOWN:
+            if event.key == K_RETURN:
+                starting = False
+
+
+
 # Solution
 SECRET_CODE = "5147"
 HANDCUFF_CODE = "0807"
 URL = 'https://www.locked-game.nl/test/form.html'
 
-# Settings for screen and initialisation.
-pygame.init()
+# Settings for screen and initialisation of the game.
 screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 pygame.display.set_caption('ESCAPE ROOM')
 background_color = RED
@@ -123,7 +221,20 @@ def time_ran_out():
     out_of_time = True
     # To enter out of the current window
 
+
     keyboard.press(Key.enter)
+
+
+
+# screen.fill(background_color)
+# screen.blit(
+#             font.render(INTRODUCTION_TEXT, True, (0, 0, 0)),
+#             (screen.get_width() // 2, screen.get_height() // 2))
+# pygame.display.update()
+# input("press enter")
+
+
+
 
 
 while True:

@@ -1,0 +1,4 @@
+playsound==1.2.2
+pygame==1.9.4
+pynput==1.4.2
+six==1.12.0
