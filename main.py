@@ -84,9 +84,12 @@ START_TIME = 3600
 INTERVAL = 15
 
 frame_count_code_timer = 0
+
 START_VALUE_FOR_COUNTER = 0
+failed_tries_counter = 0
 TIME_OPEN_FOR_INPUT_CODE = 120  # seconds
 sound_played = False
+
 
 # Problems with the screen
 # def reset_counter():
@@ -177,9 +180,12 @@ while True:
                     # frame_count_code_timer += 1
                     # clock.tick(FRAME_RATE)
                     screenSize(0, 0, fullscreen=True)
-                    instructionLabel = makeLabel("Please enter code (Green Blue Red Black):", 40, 10,
+                    if failed_tries_counter == 0:
+                        instructionLabel = makeLabel("Please enter code (Green Blue Red Black):", 40, 10,
                                                  10, "blue", "Agency FB",
+
                                                  "yellow")
+
                     showLabel(instructionLabel)
                     wordBox = makeTextBox(10, 80, 300, 0, "XXXX", 4, 24)
                     showTextBox(wordBox)
@@ -201,7 +207,13 @@ while True:
                         pygame.quit()
                         quit()
                     else:
+                        failed_tries_counter += 1
                         counter = START_VALUE_FOR_COUNTER
+                        instructionLabel = makeLabel(f"Please enter code, failed tries: {failed_tries_counter} (Green Blue Red Black):", 40, 10,
+                                                     10, "blue", "Agency FB",
+                                                     "yellow")
+
+                        showLabel(instructionLabel)
                 if out_of_time:
                     hideTextBox(wordBox)
 
