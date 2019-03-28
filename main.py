@@ -24,6 +24,10 @@ from sys import exit
 import pygame_textinput
 import webbrowser
 from threading import Timer
+from pynput.keyboard import Key, Controller
+
+keyboard = Controller()
+keyboard.press(Key.enter)
 
 # THIS IS TO STOP ALT TAB OR OTHER KEYS TO BE PRESSED
 # https://stackoverflow.com/questions/39110800/disable-alttab-combination-on-tkinter-app
@@ -114,6 +118,9 @@ def time_ran_out():
     global out_of_time
     print('You didn\'t answer in time')
     out_of_time = True
+    # To enter out of the current window
+
+    keyboard.press(Key.enter)
 
 
 while True:
@@ -197,6 +204,7 @@ while True:
                         counter = START_VALUE_FOR_COUNTER
                 if out_of_time:
                     hideTextBox(wordBox)
+
                     print(
                         'this should appear only if input was given in 2 seconds...'
                     )
