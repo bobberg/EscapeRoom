@@ -14,44 +14,35 @@
 # TODO 1: Do something if total_seconds left <= 0. Like display text YOU FAIL
 # TODO 2: Text input and open website if correct code is inputted.
 
-#!/usr/bin/python3
-import time
-import playsound
-from pygame.locals import *
-from EscapeRoomVenv.pygame_functions import *
-from sys import exit
-import pygame_textinput
-import webbrowser
-from threading import Timer
-from pynput.keyboard import Key, Controller
+# #!/usr/bin/python3
+# import time
+# import playsound
+# from pygame.locals import *
+# from sys import exit
+# import pygame_textinput
+# import webbrowser
+# from threading import Timer
+# from pynput.keyboard import Key, Controller
+
 # !/usr/bin/python3
 import time
 import webbrowser
 from sys import exit
 from threading import Timer
-
 import playsound
-import pygame_textinput
 from pygame.locals import *
 from pynput.keyboard import Key, Controller
-
-from EscapeRoomVenv.pygame_functions import *
-
-keyboard = Controller()
-
-
-
-
-
-
-
-
+from pygame_functions import *
+import pygame_textinput
 
 
 # THIS IS TO STOP ALT TAB OR OTHER KEYS TO BE PRESSED
 # https://stackoverflow.com/questions/39110800/disable-alttab-combination-on-tkinter-app
 # install from: https://sourceforge.net/projects/pyhook/
 # import pyHook
+
+keyboard = Controller()
+
 
 # Time constants
 TIME_TO_PAUSE = 4
@@ -77,6 +68,23 @@ screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 pygame.display.set_caption('PRESS ENTER TO START')
 screen.fill(background_color)
 font = pygame.font.SysFont('Consolas', 20)
+
+starting_text = "PRESS ENTER TO CONTINUE. LISTEN CAREFULLY"
+
+screen.blit(
+    font.render(starting_text.rjust(3), True, (0, 0, 0)),
+    (400, screen.get_height() // 2))
+
+pygame.display.update()
+starting = True
+while starting == True:
+    for event in pygame.event.get():
+        if event.type == KEYDOWN:
+            if event.key == K_RETURN:
+                starting = False
+
+screen.fill(background_color)
+
 text1 = 'You are an emergency team, brought together to save Disrupted Ltd.'
 text2 = 'The business is in big trouble.'
 text3 = 'The CEO has fled because the pressure was too much.'
@@ -137,12 +145,12 @@ screen.blit(
 pygame.display.update()
 playsound.playsound("intro_emergency_team.mp3")
 
-starting = True
-while starting == True:
+introduction = True
+while introduction == True:
     for event in pygame.event.get():
         if event.type == KEYDOWN:
             if event.key == K_RETURN:
-                starting = False
+                introduction = False
 
 
 
@@ -152,7 +160,7 @@ HANDCUFF_CODE = "0807"
 URL = 'https://www.locked-game.nl/test/form.html'
 
 # Settings for screen and initialisation of the game.
-screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
+
 pygame.display.set_caption('ESCAPE ROOM')
 background_color = RED
 screen.fill(background_color)
@@ -164,6 +172,7 @@ pygame.time.set_timer(pygame.USEREVENT, 1000)
 font = pygame.font.SysFont('Consolas', 50)
 
 textinput = pygame_textinput.TextInput()
+
 
 # INPUT BOX
 input_box = pygame.Rect(100, 100, 140, 32)
@@ -187,6 +196,7 @@ START_VALUE_FOR_COUNTER = 0
 failed_tries_counter = 0
 TIME_OPEN_FOR_INPUT_CODE = 120  # seconds
 sound_played = False
+
 
 
 # Problems with the screen
