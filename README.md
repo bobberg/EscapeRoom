@@ -1,5 +1,8 @@
 Welcome to the Escape Room
 
+First download this zipfile and unzip it to a folder on your computer, for example:
+C:\Users\EXAMPLEUSER\Downloads\EscapeRoomGarage\EscapeRoomVenv
+
 Install python 3.7.3 (tested) from
 "https://www.python.org/downloads/"
 
@@ -12,6 +15,8 @@ Afterwards, on Windows, go to start and type "cmd" to open the command prompt.
 Copy the path to the (EscapeRoomGarage) folder where the python files are and paste this like so in the command prompt:
 
 "cd C:\Users\EXAMPLEUSER\Downloads\EscapeRoomGarage\EscapeRoomVenv"
+
+Replace EXAMPLEUSER with your username of your user folder.
 
 When you have the workspace in your command prompt as your working directory, run this command:
 
