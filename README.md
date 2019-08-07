@@ -1,4 +1,8 @@
-Welcome to the Escape Room
+# Welcome to the Escape Room
+
+This is a simple game with small scope created by Bob van den Berg for an Escape Room maker
+
+## Installation
 
 First download this zipfile and unzip it to a folder on your computer, for example:
 C:\Users\EXAMPLEUSER\Downloads\EscapeRoomGarage\EscapeRoomVenv
@@ -20,10 +24,22 @@ Replace EXAMPLEUSER with your username of your user folder.
 
 When you have the workspace in your command prompt as your working directory, run this command:
 
-"py -m pip install playsound pygame pynput"
+```bash
+py -m pip install playsound pygame pynput
+```
 
 to install the packages that are needed to run main.py, namely playsound, pygame and pynput.
 
-You're finished with installing all the required software. You can now run main.py by double-clicking it.
+## Usage
+
+You're finished with installing all the required software. You can now run main.py by double-clicking it. You can also create a shortcut by right clicking main.py and copy to desktop.
+
+## Secret codes
+
+The secret codes for the game are hardcoded in main.py. If you want to know or edit them, open main.py with a text editor or IDE.
 
 Have fun!
+
+## Contributing
+
+Pull requests are welcome.
