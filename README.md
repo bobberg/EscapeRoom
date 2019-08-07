@@ -36,9 +36,11 @@ You're finished with installing all the required software. You can now run main.
 
 ## Secret codes / Solution
 
+```python
 SECRET_CODE = "5147"
 HANDCUFF_CODE = "0807"
 URL = 'https://www.locked-game.nl/test/form.html'
+```
 
 The secret codes for the game are hardcoded in main.py. If you want to edit them, open main.py with a text editor or IDE.
 

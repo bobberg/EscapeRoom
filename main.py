@@ -1,7 +1,7 @@
 # Created by: Bob van den Berg
 
 # escape room garage:
-# Via Cem Eser & Samantha van de Molengraft
+# Via Cem & Samantha van de Molengraft
 # Karlijn en Jemma
 
 # It should:
@@ -57,7 +57,6 @@ YELLOW = (255, 255, 0)
 YELLOW_GREEN = (160, 255, 0)
 GREENISH = (80, 255, 0)
 GREEN = (0, 255, 0)
-
 
 
 # THIS IS FOR STARTING THE GAME INTRODUCTION
@@ -153,7 +152,6 @@ while introduction == True:
                 introduction = False
 
 
-
 # Solution
 SECRET_CODE = "5147"
 HANDCUFF_CODE = "0807"
@@ -198,7 +196,6 @@ TIME_OPEN_FOR_INPUT_CODE = 120  # seconds
 sound_played = False
 
 
-
 # Problems with the screen
 # def reset_counter():
 #     counter = 0
@@ -231,9 +228,7 @@ def time_ran_out():
     out_of_time = True
     # To enter out of the current window
 
-
     keyboard.press(Key.enter)
-
 
 
 # screen.fill(background_color)
@@ -242,9 +237,6 @@ def time_ran_out():
 #             (screen.get_width() // 2, screen.get_height() // 2))
 # pygame.display.update()
 # input("press enter")
-
-
-
 
 
 while True:
@@ -303,9 +295,9 @@ while True:
                     screenSize(0, 0, fullscreen=True)
                     if failed_tries_counter == 0:
                         instructionLabel = makeLabel("Please enter code (Green Blue Red Black):", 40, 10,
-                                                 10, "blue", "Agency FB",
+                                                     10, "blue", "Agency FB",
 
-                                                 "yellow")
+                                                     "yellow")
 
                     showLabel(instructionLabel)
                     wordBox = makeTextBox(10, 80, 300, 0, "XXXX", 4, 24)
