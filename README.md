@@ -5,7 +5,7 @@ This is a simple game with small scope created by Bob van den Berg for an Escape
 ## Installation
 
 First download this zipfile and unzip it to a folder on your computer, for example:
-C:\Users\EXAMPLEUSER\Downloads\EscapeRoomGarage\EscapeRoomVenv
+C:\Users\EXAMPLEUSER\Downloads\EscapeRoomGarage
 
 Install python 3.7.3 (tested) from
 "https://www.python.org/downloads/"
