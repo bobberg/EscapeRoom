@@ -34,9 +34,13 @@ to install the packages that are needed to run main.py, namely playsound, pygame
 
 You're finished with installing all the required software. You can now run main.py by double-clicking it. You can also create a shortcut by right clicking main.py and copy to desktop.
 
-## Secret codes
+## Secret codes / Solution
 
-The secret codes for the game are hardcoded in main.py. If you want to know or edit them, open main.py with a text editor or IDE.
+SECRET_CODE = "5147"
+HANDCUFF_CODE = "0807"
+URL = 'https://www.locked-game.nl/test/form.html'
+
+The secret codes for the game are hardcoded in main.py. If you want to edit them, open main.py with a text editor or IDE.
 
 Have fun!
 
