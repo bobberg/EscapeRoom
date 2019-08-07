@@ -18,7 +18,9 @@ Afterwards, on Windows, go to start and type "cmd" to open the command prompt.
 
 Copy the path to the (EscapeRoomGarage) folder where the python files are and paste this like so in the command prompt:
 
-"cd C:\Users\EXAMPLEUSER\Downloads\EscapeRoomGarage\EscapeRoomVenv"
+```bash
+cd C:/Users/EXAMPLEUSER/Downloads/EscapeRoomGarage/EscapeRoomVenv
+```
 
 Replace EXAMPLEUSER with your username of your user folder.
 
