@@ -47,7 +47,7 @@ URL = 'https://www.locked-game.nl/test/form.html'
 URL = "https://www-d-o-t-locked-game-d-o-t-nl.alvast-online.nl/test/form"
 
 # These are the solutions for the locked website as last known to me.
-(Disclaimer: I'm not responsible for their website.)
+# (Disclaimer: I'm not responsible for their website.)
 
 # Management Team Reference Numbers: 1234
 # Skills (numbers): 4296
